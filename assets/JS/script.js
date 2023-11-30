@@ -1,3 +1,6 @@
-var queryURL = ''
-var FetchURL = ''
+var currencyConverterQueryURL = ''
+var convertorAPIKey = ''
+
+var historicalDataQueryURL = ''
+var historicalAPIKey = ''
 
