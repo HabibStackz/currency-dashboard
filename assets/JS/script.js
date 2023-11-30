@@ -6,7 +6,6 @@ var convertorAPIKey = ''
 var historicalDataQueryURL = ''
 var historicalAPIKey = ''
 
-
 var userAmount = document.getElementById('userAmount') //This should be a class for both the user input and the appended amount on the dashboard. 
 var userDate = document.getElementById('userDate') //This is the date chosen by the user
 
@@ -14,15 +13,26 @@ var selectedCurrency = document.getElementById('') //Dropdown menu for the curre
 
 var exchangeCards = document.getElementsByClassName('')
 var convertBtn = document.getElementById('convertBtn')
+var switchBtn = document.getElementById('switchBtn')
 
 // Display nothing if the user has not entered a value
-convertBtn.addEventListener('click', errorMessage)
+convertBtn.addEventListener('submit', errorMessage)
 
-function errorMessage(){
-    if (userDate.value === '' || userAmount.value === ''){
-    // exchangeCards.setAttribute('class', 'hide')
-    console.log('Please enter both')
-} else{
-   return userDate.value, userAmount.value
-} }
+// Error handler to deal with a blank input
+function errorMessage() {
+    userAmount.preventDefault()
+    userDate.preventDefault()
+    if (userDate.value === '' || userAmount.value === '' || userAmount.value < 1) {
+        exchangeCards.setAttribute('class', 'hide')
+        console.log('Please enter a valid date or amount')
+    } else {
+        exchangeCards.setAttribute('class', 'show')
+        return userDate.value, userAmount.value
+    }
+}
 
+// switchBtn.addEventListener('click', switchCurrency)
+
+// function switchCurrency() {
+
+// }
