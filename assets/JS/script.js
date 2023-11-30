@@ -1,3 +1,5 @@
+
+
 // Convertor API URL and API key
 var currencyConverterQueryURL = ''
 var convertorAPIKey = ''
