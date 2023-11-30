@@ -17,6 +17,16 @@ var switchBtn = document.getElementById('switchBtn')
 
 // Display nothing if the user has not entered a value
 convertBtn.addEventListener('submit', errorMessage)
+// After this has been clicked, fetch the data from the API
+// put the user amount in the API request to get the right conversion rate
+// add the currency pair to the API URL request 
+// pull the right currency pair from the users choice and match it will the API
+// pull the right historical data from the API for the currency pair
+// get the value of the converted currency
+// append that converted value to the right hand currency card
+// append the userAmount to the left hand currency card
+// append the historical data from the second API to the <li> below userAmount and converted amount, maybe with for loop
+
 
 // Error handler to deal with a blank input
 function errorMessage() {
