@@ -40,8 +40,12 @@ function errorMessage() {
     } else {
         // exchangeCards.setAttribute('class', 'show')
         var card = document.createElement('h2')
+        var conCard = document.createElement('h2')
+        var convertedValue = userAmount.value * 5
         card.innerText = userAmount.value
+        conCard.innerText = convertedValue
         nativeCurrencyDiv.append(card)
+        convertedCurrencyDiv.append(conCard)
     }
     }
     
