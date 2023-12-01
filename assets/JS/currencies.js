@@ -20,7 +20,7 @@ var currencies = [
         symbol: '$'
     },
     {
-        name: 'AUF',
+        name: 'AUD',
         symbol: '$'
     }
 ]

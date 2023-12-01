@@ -1,5 +1,3 @@
-
-
 // Convertor API URL and API key
 var currencyConverterQueryURL = ''
 var convertorAPIKey = ''
@@ -13,12 +11,16 @@ var userDate = document.getElementById('userDate') //This is the date chosen by 
 
 var selectedCurrency = document.getElementById('') //Dropdown menu for the currencies 
 
-var exchangeCards = document.getElementsByClassName('')
+var currencyCards = document.getElementsByClassName('currencyCards')
 var convertBtn = document.getElementById('convertBtn')
 var switchBtn = document.getElementById('switchBtn')
+var nativeCurrencyCard = document.getElementById('nativeCurrencyCard')
+var convertedCurrencyCard = document.getElementById('convertedCurrencyCard')
 
 // Display nothing if the user has not entered a value
-convertBtn.addEventListener('submit', errorMessage)
+convertBtn.addEventListener('click', errorMessage)
+
+
 // After this has been clicked, fetch the data from the API
 // put the user amount in the API request to get the right conversion rate
 // add the currency pair to the API URL request 
@@ -32,15 +34,13 @@ convertBtn.addEventListener('submit', errorMessage)
 
 // Error handler to deal with a blank input
 function errorMessage() {
-    userAmount.preventDefault()
-    userDate.preventDefault()
     if (userDate.value === '' || userAmount.value === '' || userAmount.value < 1) {
-        exchangeCards.setAttribute('class', 'hide')
+        // exchangeCards.setAttribute('class', 'hide')
         console.log('Please enter a valid date or amount')
-    } else {
-        exchangeCards.setAttribute('class', 'show')
-        return userDate.value, userAmount.value
-    }
+    // } else {
+        // exchangeCards.setAttribute('class', 'show')
+        }
+    
 }
 
 // switchBtn.addEventListener('click', switchCurrency)
