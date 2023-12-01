@@ -54,3 +54,19 @@ function errorMessage() {
     // function switchCurrency() {
         
         // }
+
+
+// Dummy HTML to work with functionality 
+
+{/* <body>
+    <input id="userAmount" type="text">
+    <input id="userDate" type="text">
+    <button id="convertBtn">Convert</button>
+    <!-- <button class="switchBtn">Switch Currencies</button> -->
+    
+    <section>
+        <div id="nativeCurrencyCard" class="currencyCards">
+        </div>
+        <div id="convertedCurrencyCard" class="currencyCards">
+        </div>
+    </section> */}
