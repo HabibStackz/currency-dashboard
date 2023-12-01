@@ -14,8 +14,8 @@ var selectedCurrency = document.getElementById('') //Dropdown menu for the curre
 var currencyCards = document.getElementsByClassName('currencyCards')
 var convertBtn = document.getElementById('convertBtn')
 var switchBtn = document.getElementById('switchBtn')
-var nativeCurrencyCard = document.getElementById('nativeCurrencyCard')
-var convertedCurrencyCard = document.getElementById('convertedCurrencyCard')
+var nativeCurrencyDiv = document.getElementById('nativeCurrencyCard')
+var convertedCurrencyDiv = document.getElementById('convertedCurrencyCard')
 
 // Display nothing if the user has not entered a value
 convertBtn.addEventListener('click', errorMessage)
@@ -37,14 +37,16 @@ function errorMessage() {
     if (userDate.value === '' || userAmount.value === '' || userAmount.value < 1) {
         // exchangeCards.setAttribute('class', 'hide')
         console.log('Please enter a valid date or amount')
-    // } else {
+    } else {
         // exchangeCards.setAttribute('class', 'show')
-        }
+        var card = document.createElement('h2')
+        card.innerText = userAmount.value
+        nativeCurrencyDiv.append(card)
+    }
+    }
     
-}
-
-// switchBtn.addEventListener('click', switchCurrency)
-
-// function switchCurrency() {
-
-// }
+    // switchBtn.addEventListener('click', switchCurrency)
+    
+    // function switchCurrency() {
+        
+        // }
