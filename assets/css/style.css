@@ -1,0 +1,14 @@
+body {
+    background: url(../images/pexels-pixabay-220201.jpg);
+    background-size: cover;  
+    background-color: rgb(7, 55, 82);
+    background-blend-mode:soft-light;
+}
+
+/* .chartsBg {
+    background-image: url(../images/pexels-pixabay-210607.jpg);
+    background-size: cover;
+    background-color: rgb(49, 164, 184);
+    background-blend-mode: multiply;
+} */
+
