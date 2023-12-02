@@ -11,14 +11,17 @@ var userDate = document.getElementById('userDate') //This is the date chosen by 
 
 var selectedCurrency = document.getElementById('') //Dropdown menu for the currencies 
 
-var currencyCards = document.getElementsByClassName('currencyCards')
+var currencyCards = document.querySelectorAll('.currencyCard')
 var convertBtn = document.getElementById('convertBtn')
 var switchBtn = document.getElementById('switchBtn')
 var nativeCurrencyDiv = document.getElementById('nativeCurrencyCard')
 var convertedCurrencyDiv = document.getElementById('convertedCurrencyCard')
 
+// To be replaced with the API conversion 
+var conversionAmount = 5
+
 // Display nothing if the user has not entered a value
-convertBtn.addEventListener('click', errorMessage)
+convertBtn.addEventListener('click', conversion)
 
 
 // After this has been clicked, fetch the data from the API
@@ -33,15 +36,19 @@ convertBtn.addEventListener('click', errorMessage)
 
 
 // Error handler to deal with a blank input
-function errorMessage() {
+function conversion() {
     if (userDate.value === '' || userAmount.value === '' || userAmount.value < 1) {
-        // exchangeCards.setAttribute('class', 'hide')
+        for (let elem of currencyCards){
+            elem.classList.add('hide')
+        }
         console.log('Please enter a valid date or amount')
     } else {
-        // exchangeCards.setAttribute('class', 'show')
+        for (let elem of currencyCards){
+            elem.classList.remove('hide')
+        }
         var card = document.createElement('h2')
         var conCard = document.createElement('h2')
-        var convertedValue = userAmount.value * 5
+        var convertedValue = userAmount.value * conversionAmount
         card.innerText = userAmount.value
         conCard.innerText = convertedValue
         nativeCurrencyDiv.append(card)
@@ -52,21 +59,10 @@ function errorMessage() {
     // switchBtn.addEventListener('click', switchCurrency)
     
     // function switchCurrency() {
-        
-        // }
+    //     // this is where the currencies will be swapped over. 
+
+    //     }
 
 
 // Dummy HTML to work with functionality 
 
-{/* <body>
-    <input id="userAmount" type="text">
-    <input id="userDate" type="text">
-    <button id="convertBtn">Convert</button>
-    <!-- <button class="switchBtn">Switch Currencies</button> -->
-    
-    <section>
-        <div id="nativeCurrencyCard" class="currencyCards">
-        </div>
-        <div id="convertedCurrencyCard" class="currencyCards">
-        </div>
-    </section> */}
