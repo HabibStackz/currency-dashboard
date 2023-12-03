@@ -20,6 +20,8 @@ var convertedCurrencyDiv = document.getElementById('convertedCurrencyCard')
 // To be replaced with the API conversion 
 var conversionAmount = 5
 
+
+// =============================================
 // modal variables and functions
 var errorModal = new bootstrap.Modal('#errorModal')
 var modalXBtn = document.getElementById('modalXBtn')
@@ -31,9 +33,16 @@ modalXBtn.addEventListener('click', closeModal)
 function closeModal(){
     errorModal.hide()
 }
+// ==================================================
+
 // Display nothing if the user has not entered a value
 convertBtn.addEventListener('click', conversion)
 
+// working todays date D,DD,MM,YYYY
+var d = new Date()
+var UTCDate = d.toUTCString()
+var slicedDate = UTCDate.slice(0,16)
+console.log(slicedDate)
 
 // After this has been clicked, fetch the data from the API
 // put the user amount in the API request to get the right conversion rate
@@ -77,4 +86,3 @@ function conversion() {
 
 
 // Dummy HTML to work with functionality 
-
