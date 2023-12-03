@@ -34,15 +34,16 @@ function closeModal(){
     errorModal.hide()
 }
 // ==================================================
-
-// Display nothing if the user has not entered a value
-convertBtn.addEventListener('click', conversion)
-
 // working todays date D,DD,MM,YYYY
 var d = new Date()
 var UTCDate = d.toUTCString()
 var slicedDate = UTCDate.slice(0,16)
 console.log(slicedDate)
+// ==================================================
+
+// Display nothing if the user has not entered a value
+convertBtn.addEventListener('click', conversion)
+
 
 // After this has been clicked, fetch the data from the API
 // put the user amount in the API request to get the right conversion rate
@@ -54,7 +55,7 @@ console.log(slicedDate)
 // append the userAmount to the left hand currency card
 // append the historical data from the second API to the <li> below userAmount and converted amount, maybe with for loop
 
-
+// ===========================================================
 // Error handler to deal with a blank input
 function conversion() {
     if (userDate.value === '' || userAmount.value === '' 
@@ -76,13 +77,55 @@ function conversion() {
         convertedCurrencyDiv.append(conCard)
     }
     }
-    
+    // ===========================================================
+
+    // work in progress
     // switchBtn.addEventListener('click', switchCurrency)
     
     // function switchCurrency() {
     //     // this is where the currencies will be swapped over. 
 
     //     }
-
+// ==============================================================
 
 // Dummy HTML to work with functionality 
+
+// =========================================================================
+
+// error modal HTML
+/* <div id="errorModal" class="modal" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Error</h5>
+      <button id="modalXBtn" type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Please enter a valid amount or date</p>
+    </div>
+    <div class="modal-footer">
+      <button id="modalCloseBtn" type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div> */
+// =========================================================================
+
+// placeholder HTML
+//     <input id="userAmount" type="text">
+// <input id="userDate" type="text">
+// <button id="convertBtn">Convert</button>
+// <button class="switchBtn">Switch Currencies</button>
+
+// <section>
+//     <div id="nativeCurrencyCard" class="currencyCard">
+//         <h2 id="nativeCurrencyAmount">5</h2>
+//     </div>
+//     <div id="convertedCurrencyCard" class="currencyCard">
+//         <h2 id="convertedCurrencyAmount">5
+//         </h2>
+//     </div>
+// </section>
+// ======================================================================
