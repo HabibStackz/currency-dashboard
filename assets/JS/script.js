@@ -129,3 +129,13 @@ function conversion() {
 //     </div>
 // </section>
 // ======================================================================
+
+// placeholder CSS 
+// .hide{
+//     display: none;
+// }
+
+// .currencyCard{
+//     background-color: blueviolet;
+// }
+// ======================================================================
