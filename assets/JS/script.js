@@ -20,6 +20,17 @@ var convertedCurrencyDiv = document.getElementById('convertedCurrencyCard')
 // To be replaced with the API conversion 
 var conversionAmount = 5
 
+// modal variables and functions
+var errorModal = new bootstrap.Modal('#errorModal')
+var modalXBtn = document.getElementById('modalXBtn')
+var modalCloseBtn = document.getElementById('modalCloseBtn')
+
+modalCloseBtn.addEventListener('click', closeModal)
+modalXBtn.addEventListener('click', closeModal)
+
+function closeModal(){
+    errorModal.hide()
+}
 // Display nothing if the user has not entered a value
 convertBtn.addEventListener('click', conversion)
 
@@ -37,11 +48,12 @@ convertBtn.addEventListener('click', conversion)
 
 // Error handler to deal with a blank input
 function conversion() {
-    if (userDate.value === '' || userAmount.value === '' || userAmount.value < 1) {
+    if (userDate.value === '' || userAmount.value === '' 
+    || userAmount.value < 1) {
         for (let elem of currencyCards){
             elem.classList.add('hide')
         }
-        console.log('Please enter a valid date or amount')
+        errorModal.show()
     } else {
         for (let elem of currencyCards){
             elem.classList.remove('hide')
