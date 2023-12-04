@@ -3,9 +3,9 @@ let marketdataAPIkey = "0316a175ab7d4cb592969c346cdc3a57";
 
 function getCurrentCurrencyData () {
     fetch(`https://api.exchangerate-api.com/v4/latest/${currency}`)
-        .then(response => response.json())
-        .then(data => {})
-        .catch(error => { console.error(error) });
+    .then(response => response.json())
+    .then(data => {})
+    .catch(error => { console.error(error) });
 }
 
 function getHistoricalCurrencyData () {
@@ -17,11 +17,19 @@ function getHistoricalCurrencyData () {
 
 function getCurrencyCodesFromCurrencyName () {
     fetch('https://openexchangerates.org/api/currencies.json')
-        .then(response => response.json())
-        .then(data => {})
+    .then(response => response.json())
+    .then(data => {})
     .catch(error => console.error(error));
+}
+
+function getCurrencyCodesFromCountryName() {
+    fetch('https://restcountries.com/v3.1/all')
+    .then(response => response.json())
+    .then(data => {
+    });
 }
 
 getCurrentCurrencyData();
 getHistoricalCurrencyData();
 getCurrencyCodesFromCurrencyName();
+getCurrencyCodesFromCountryName();
