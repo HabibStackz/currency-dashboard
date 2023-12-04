@@ -18,7 +18,8 @@ function getHistoricalCurrencyData () {
 function getCurrencyCodesFromCurrencyName () {
     fetch('https://openexchangerates.org/api/currencies.json')
     .then(response => response.json())
-    .then(data => {})
+    .then(data => {
+    })
     .catch(error => console.error(error));
 }
 
@@ -26,6 +27,7 @@ function getCurrencyCodesFromCountryName() {
     fetch('https://restcountries.com/v3.1/all')
     .then(response => response.json())
     .then(data => {
+        // Get main name of country: data[0].name.common;
     });
 }
 
