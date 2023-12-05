@@ -11,18 +11,18 @@
 
 <body>
 
-  <header class="text-white text-center mt-5">
+  <header class="text-white text-center m-4">
     <h1>Currency Dashboard</h1>
-    <div class="container">
+    <div class="container mt-4 ">
       <div class="row">
-        <p id="currentDate" class="dateHeader col-12 bg-body-tertiary rounded-3 text-dark text-center p-1"></p>
+        <p id="currentDate" class="dateHeader col-12 bg-body-tertiary rounded-5 text-dark text-center p-1"></p>
       </div>
     </div> <!--Use dayJS to show current day and date-->
   </header>
 
-  <section class= "d-none">
-    <div id="welcomeMessage" class="py-4 container">
-      <div class="p-5 pb-2 text-center bg-body-tertiary rounded-5">
+  <section class="">
+    <div id="welcomeMessage" class="py-4 container ">
+      <div class="p-5 pb-2 text-center bg-body-tertiary rounded-5 boxShadow">
         <h1 class="text-body-emphasis">Welcome to Currency Dashboard!</h1>
         <p class="col-lg-12 mx-auto fs-5 text-muted">
           Greetings and welcome to Currency Dashboard – where currency conversion becomes effortless and intuitive.
@@ -32,7 +32,8 @@
           real-time exchange rates and a user-friendly interface.
         </p>
         <div class="d-inline-flex gap-2 mb-5">
-          <button id="startExchange" class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill" type="button">
+          <button id="startExchange" class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill"
+            type="button">
             Start Exchanging!
           </button>
         </div>
@@ -41,25 +42,27 @@
   </section>
 
   <section>
-    <div class="container mt-5 ">
+    <div class="container mt-5 px-4 ">
       <div class="row align-items-center">
         <div class="card boxShadow text-center mb-3 col-5 rounded-5" style="width: 1fr; height: 30rem;">
           <div class="card-body">
             <h5 class="card-title">Currency A</h5>
             <p class="card-text">Data goes in here.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            
             <p>chart can go here</p>
           </div>
         </div>
-        <div class="col-2 ">
+        
+        <div id="exchangeButton" class="col-2">
           <a href="#" class="btn btn-primary">Exchange</a>
           <!-- exchange arrow goes here -->
         </div>
+
         <div class="card boxShadow text-center mb-3 col-5 rounded-5" style="width: 1fr; height: 30rem;">
           <div class="card-body">
             <h5 class="card-title">Currency B</h5>
             <p class="card-text">Data goes in here.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            
             <p>chart can go here</p>
           </div>
         </div>
