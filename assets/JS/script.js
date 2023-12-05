@@ -80,12 +80,13 @@ function conversion() {
     // ===========================================================
 
     // work in progress
-    // switchBtn.addEventListener('click', switchCurrency)
+    switchBtn.addEventListener('click', switchCurrency)
     
-    // function switchCurrency() {
-    //     // this is where the currencies will be swapped over. 
+    function switchCurrency() {
+        // this is where the currencies will be swapped over. 
+      
 
-    //     }
+        }
 // ==============================================================
 
 // Dummy HTML to work with functionality 
