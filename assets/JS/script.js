@@ -6,7 +6,9 @@ let year = date.getFullYear();
 function getCurrentCurrencyData () {
     fetch(`https://api.exchangerate-api.com/v4/latest/${currency}`)
     .then(response => response.json())
-    .then(data => {})
+    .then(data => {
+        //console.log(data);
+    })
     .catch(error => { console.error(error) });
 }
 
@@ -14,7 +16,11 @@ function getHistoricalCurrencyData () {
     for (let i = year - 1; i > year - 6; i--) {
         fetch(`https://openexchangerates.org/api/historical/${i}-01-01.json?app_id=${marketdataAPIkey}&base=USD&symbols=EUR`)
         .then(response => response.json())
-        .then(data => {console.log(data)})
+        .then(data => {
+            // get historical years
+            convertTimestamp(data.timestamp)
+            
+        })
         .catch(error => { console.error(error) });
     }
 }
@@ -33,7 +39,14 @@ function getCurrencyCodesFromCountryName() {
     .then(data => {
         // Get main name of country: data[0].name.common;
     });
-}
+};
+
+// function to covert timestamp to normal date
+function convertTimestamp (timestamp){
+    var date = new Date(timestamp);
+    var year = date.getFullYear();
+    console.log(year)
+};
 
 getCurrentCurrencyData();
 getHistoricalCurrencyData();
