@@ -46,6 +46,8 @@ body {
     width: 60%;
 }
 
+
+/* class for hiding currency cards on click */
 .hide{
     display: none;
 }

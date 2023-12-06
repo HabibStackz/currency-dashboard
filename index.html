@@ -32,7 +32,7 @@
           real-time exchange rates and a user-friendly interface.
         </p>
         <div class="d-inline-flex gap-2 mb-5">
-          <button id="startExchange" class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill"
+          <button id="startButton" class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill"
             type="button">
             Start Exchanging!
           </button>
@@ -42,21 +42,21 @@
   </section>
 
   <section>
-    <div class="container mt-5 px-4 hide currencyCard">
+      <div class="container mt-5 px-4 currencyCard hide">
       <div id="input-boxes">
         <div id="write-currency" class="row align-items-center pb-3 col-5 write-currency">
           <select>
             <option>$</option>
             <option>£</option>
           </select>
-          <input type="number">
-          <select>
+          <input id="userAmount" type="number">
+          <select id="selectedCurrency">
             <option>$</option>
             <option>£</option>
           </select>
         </div>
         <div id="write-date" class="row align-items-center pb-3 col-5 write-currency">
-          <input type="date">
+          <input id="userDate" type="date">
         </div>
       </div>
       <div class="row align-items-center currencyCard hide">

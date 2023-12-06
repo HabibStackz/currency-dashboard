@@ -1,18 +1,27 @@
+// DOM selected elements
 let currentDay = document.getElementById("currentDate");
-let startButton = document.getElementById("startExchange");
+let startBtn = document.getElementById("startButton");
 let welcomeScreen = document.getElementById("welcomeMessage");
-var currencyCards = document.getElementsByClassName('.currencyCard')
+var currencyCards = document.getElementsByClassName('currencyCard')
+var exchangeBtn = document.getElementById('exchangeButton')
+// ==============================================
+
+// user input variables
 var userAmount = document.getElementById('userAmount')
+var userDate = document.getElementById('userDate')
+var selectedCurrency = document.getElementById('selectedCurrency')
+// ===============================================
+
 
 const today = dayjs()
 
-startButton.addEventListener('click', hideWelcomeMessage);
 function hideWelcomeMessage(){
     welcomeScreen.style.display = 'none';
     for (let elem of currencyCards){
         elem.classList.remove('hide')
     }
 }
+startBtn.addEventListener('click', hideWelcomeMessage);
 
 currentDay.textContent = today.format("dddd-DD-MMMM-YYYY")
 
@@ -24,14 +33,7 @@ var convertorAPIKey = ''
 var historicalDataQueryURL = ''
 var historicalAPIKey = ''
 
- //This should be a class for both the user input and the appended amount on the dashboard. 
-var userDate = document.getElementById('userDate') //This is the date chosen by the user
 
-var selectedCurrency = document.getElementById('') //Dropdown menu for the currencies 
-
-var currencyCards = document.querySelectorAll('.currencyCard')
-var convertBtn = document.getElementById('convertBtn')
-var switchBtn = document.getElementById('switchBtn')
 var nativeCurrencyDiv = document.getElementById('nativeCurrencyCard')
 var convertedCurrencyDiv = document.getElementById('convertedCurrencyCard')
 
@@ -54,7 +56,6 @@ function closeModal(){
 
 // Display nothing if the user has not entered a value
 convertBtn.addEventListener('click', conversion)
-
 
 // After this has been clicked, fetch the data from the API
 // put the user amount in the API request to get the right conversion rate
