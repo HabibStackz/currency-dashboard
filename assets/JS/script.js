@@ -6,7 +6,7 @@ let year = date.getFullYear();
 function getCurrentCurrencyData () {
     fetch(`https://api.exchangerate-api.com/v4/latest/${currency}`)
     .then(response => response.json())
-    .then(data => {})
+    .then(data => {console.log(data)})
     .catch(error => { console.error(error) });
 }
 

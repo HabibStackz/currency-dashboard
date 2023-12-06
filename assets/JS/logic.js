@@ -9,7 +9,7 @@ var exchangeBtn = document.getElementById('exchangeButton')
 // user input variables
 var userAmount = document.getElementById('userAmount')
 var userDate = document.getElementById('userDate')
-var selectedCurrency = document.getElementById('selectedCurrency').value
+var selectedCurrency = document.getElementById('selectedCurrency')
 var currencyA = document.getElementById('currencyA')
 var currencyB = document.getElementById('currencyB')
 // ===============================================
@@ -55,6 +55,12 @@ function closeModal() {
 
 // conversion function and event listener 
 exchangeBtn.addEventListener('click', conversion)
+selectedCurrency.addEventListener('change', returnValue)
+
+function returnValue(event) {
+    const currentValue = event.target.value
+    console.log(currentValue)
+}
 
 function conversion() {
     if (userAmount.value == ''
@@ -68,9 +74,12 @@ function conversion() {
         for (let elem of currencyCards) {
             elem.classList.remove('hide')
         }
+        if (selectedCurrency == 'S') {
+            currency = 'USD'
+        }
         currencyA.innerText = userAmount.value
         currencyB.innerText = userAmount.value * 5
-        console.log(selectedCurrency.value)
+        console.log(currency)
     }
 }
 // ===============================================
