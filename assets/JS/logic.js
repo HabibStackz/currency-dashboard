@@ -1,12 +1,18 @@
 let currentDay = document.getElementById("currentDate");
 let startButton = document.getElementById("startExchange");
 let welcomeScreen = document.getElementById("welcomeMessage");
+var currencyCards = document.getElementsByClassName('.currencyCard')
+var userAmount = document.getElementById('userAmount')
+
 const today = dayjs()
 
+startButton.addEventListener('click', hideWelcomeMessage);
 function hideWelcomeMessage(){
     welcomeScreen.style.display = 'none';
+    for (let elem of currencyCards){
+        elem.classList.remove('hide')
+    }
 }
-startButton.addEventListener('click', hideWelcomeMessage);
 
 currentDay.textContent = today.format("dddd-DD-MMMM-YYYY")
 
@@ -18,7 +24,7 @@ var convertorAPIKey = ''
 var historicalDataQueryURL = ''
 var historicalAPIKey = ''
 
-var userAmount = document.getElementById('userAmount') //This should be a class for both the user input and the appended amount on the dashboard. 
+ //This should be a class for both the user input and the appended amount on the dashboard. 
 var userDate = document.getElementById('userDate') //This is the date chosen by the user
 
 var selectedCurrency = document.getElementById('') //Dropdown menu for the currencies 
@@ -45,13 +51,6 @@ modalXBtn.addEventListener('click', closeModal)
 function closeModal(){
     errorModal.hide()
 }
-// ==================================================
-// working todays date D,DD,MM,YYYY
-var d = new Date()
-var UTCDate = d.toUTCString()
-var slicedDate = UTCDate.slice(0,16)
-console.log(slicedDate)
-// ==================================================
 
 // Display nothing if the user has not entered a value
 convertBtn.addEventListener('click', conversion)
