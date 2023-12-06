@@ -14,8 +14,12 @@ var currencyA = document.getElementById('currencyA')
 var currencyB = document.getElementById('currencyB')
 // ===============================================
 
+// todays date
 const today = dayjs()
+currentDay.textContent = today.format("dddd-DD-MMMM-YYYY")
+// ==============================================
 
+// Welcome screen event listener
 function hideWelcomeMessage(){
     welcomeScreen.style.display = 'none';
     for (let elem of currencyCards){
@@ -23,8 +27,8 @@ function hideWelcomeMessage(){
     }
 }
 startBtn.addEventListener('click', hideWelcomeMessage);
+// =============================================
 
-currentDay.textContent = today.format("dddd-DD-MMMM-YYYY")
 
 // Convertor API URL and API key
 var currencyConverterQueryURL = ''
@@ -33,8 +37,8 @@ var convertorAPIKey = ''
 // Historical data API URL and API key
 var historicalDataQueryURL = ''
 var historicalAPIKey = ''
-
 // =============================================
+
 // modal variables and functions
 var errorModal = new bootstrap.Modal('#errorModal')
 var modalXBtn = document.getElementById('modalXBtn')
@@ -46,12 +50,12 @@ modalXBtn.addEventListener('click', closeModal)
 function closeModal(){
     errorModal.hide()
 }
+// =======================================================
 
-// Display nothing if the user has not entered a value
+
+// conversion function and event listener 
 exchangeBtn.addEventListener('click', conversion)
 
-// ===========================================================
-// Error handler to deal with a blank input
 function conversion() {
     if (userAmount.value == '' 
     || userAmount.value < 1 || userDate.value == '') {
@@ -68,3 +72,4 @@ function conversion() {
         console.log(selectedCurrency.value)
     }
     }
+    // ===============================================
