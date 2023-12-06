@@ -1,14 +1,19 @@
+var chartEl1 = document.getElementById('chart_div1');
+var chartEl2 = document.getElementById('chart_div2')
 let currency = "AED";
 let marketdataAPIkey = "0316a175ab7d4cb592969c346cdc3a57";
 let date = new Date();
 let year = date.getFullYear();
 
-var allHistoryCurrency = []; // currency history container
+//set currency
+var baseCurrency = "USD";
+var quoteCurrency = "GBP"
+
+
 
 // Variable to get timeSeries data 
-var timeSeriesURL = "https://marketdata.tradermade.com/api/v1/timeseries?currency=EURUSD&api_key=6QCpzLmVDWQ2U_dkKVwr&start_date=2023-01-01&end_date=2023-11-30&format=records";
-
-
+var base_timeSeriesURL = "https://marketdata.tradermade.com/api/v1/timeseries?currency="+baseCurrency+quoteCurrency+"&api_key=6QCpzLmVDWQ2U_dkKVwr&start_date=2023-01-01&end_date=2023-11-30&format=records";
+var quote_timeSeriesURL = "https://marketdata.tradermade.com/api/v1/timeseries?currency="+quoteCurrency+baseCurrency+"&api_key=6QCpzLmVDWQ2U_dkKVwr&start_date=2023-01-01&end_date=2023-11-30&format=records";
 
 function getCurrentCurrencyData () {
     fetch(`https://api.exchangerate-api.com/v4/latest/${currency}`)
@@ -47,22 +52,78 @@ function getCurrencyCodesFromCountryName() {
     });
 };
 
-function runAPI () {
-fetch(timeSeriesURL).then(function(response){
+// function for getting timeSeries data from API
+function getBaseCurrencyData () {
+    var allHistoryCurrency = []; // currency history container
+fetch(base_timeSeriesURL).then(function(response){
     return response.json();
 }).then(function(data){
-    for (var i=0; i<data.quotes.length; i++){
-        //console.log([data.quotes[i].date , data.quotes[i].close] )
-        //console.log(data.quotes[i].close);
+    for (var i=0; i<data.quotes.length; i++){ 
+        //console.log(data)
+        //Add data and close currency of timeSeries data to array
         allHistoryCurrency.push([data.quotes[i].date , data.quotes[i].close])
     }
     console.log(allHistoryCurrency);  
+    //runChart();
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawChart(baseCurrency, allHistoryCurrency, chartEl1));
+    
 })
 };
 
 
-//runAPI();
+function getQuoteCurrencyData () {
+    var allHistoryCurrency = []; // currency history container
+fetch(quote_timeSeriesURL).then(function(response){
+    return response.json();
+}).then(function(data){
+    for (var i=0; i<data.quotes.length; i++){ 
+        //console.log(data)
+        //Add data and close currency of timeSeries data to array
+        allHistoryCurrency.push([data.quotes[i].date , data.quotes[i].close])
+    }
+    //console.log(allHistoryCurrency);  
+    //runChart();
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawChart(quoteCurrency, allHistoryCurrency, chartEl2));
+    
+})
+};
+
+
+
+// Load the Visualization API and the core chart package.
+google.charts.load('current', {'packages':['corechart']});
+
+//function to get chart from google API
+// function runChart(){
+//     // Set a callback to run when the Google Visualization API is loaded.
+//     google.charts.setOnLoadCallback(drawChart);
+   
+// };
+
+getBaseCurrencyData(); 
+getQuoteCurrencyData();
 getCurrentCurrencyData();
 getHistoricalCurrencyData();
 getCurrencyCodesFromCurrencyName();
 getCurrencyCodesFromCountryName();
+
+// create Callback function that creates and populates a data table
+function drawChart(base, baseHistoryCurrency, chartEl) {
+  
+    // Create the data table.
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Date');
+    data.addColumn('number', base);
+    data.addRows(baseHistoryCurrency);
+
+    // Set chart options
+    var options = {'title':'Currency trend for the year 2023',
+                   'width':900,
+                   'height':800};
+
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.LineChart(chartEl);
+    chart.draw(data, options);
+  };
