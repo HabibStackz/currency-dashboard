@@ -8,7 +8,7 @@ function hideWelcomeMessage(){
 }
 startButton.addEventListener('click', hideWelcomeMessage);
 
-currentDay.textContent = today.format("dddd-MMMM-YYYY")
+currentDay.textContent = today.format("dddd-DD-MMMM-YYYY")
 
 // Convertor API URL and API key
 var currencyConverterQueryURL = ''
