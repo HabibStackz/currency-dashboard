@@ -102,8 +102,8 @@ function drawChart(base, baseHistoryCurrency, chartEl) {
 
     // Set chart options
     var options = {'title':'Currency trend for the year 2023',
-                   'width':900,
-                   'height':800};
+                   'width':600,
+                   'height':300};
 
     // Instantiate and draw our chart, passing in some options.
     var chart = new google.visualization.LineChart(chartEl);
