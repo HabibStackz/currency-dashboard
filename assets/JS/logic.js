@@ -10,6 +10,8 @@ var exchangeBtn = document.getElementById('exchangeButton')
 var userAmount = document.getElementById('userAmount')
 var userDate = document.getElementById('userDate')
 var selectedCurrency = document.getElementById('selectedCurrency')
+var currencyA = document.getElementById('currencyA')
+var currencyB = document.getElementById('currencyB')
 // ===============================================
 
 const today = dayjs()
@@ -79,12 +81,7 @@ function conversion() {
         for (let elem of currencyCards){
             elem.classList.remove('hide')
         }
-        var card = document.createElement('h2')
-        var conCard = document.createElement('h2')
-        var convertedValue = userAmount.value * conversionAmount
-        card.innerText = userAmount.value
-        conCard.innerText = convertedValue
-        nativeCurrencyDiv.append(card)
-        convertedCurrencyDiv.append(conCard)
+        currencyA.innerText = userAmount.value
+        currencyB.innerText = userAmount.value * 5
     }
     }
