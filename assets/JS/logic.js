@@ -20,9 +20,9 @@ currentDay.textContent = today.format("dddd-DD-MMMM-YYYY")
 // ==============================================
 
 // Welcome screen event listener
-function hideWelcomeMessage(){
+function hideWelcomeMessage() {
     welcomeScreen.style.display = 'none';
-    for (let elem of currencyCards){
+    for (let elem of currencyCards) {
         elem.classList.remove('hide')
     }
 }
@@ -47,7 +47,7 @@ var modalCloseBtn = document.getElementById('modalCloseBtn')
 modalCloseBtn.addEventListener('click', closeModal)
 modalXBtn.addEventListener('click', closeModal)
 
-function closeModal(){
+function closeModal() {
     errorModal.hide()
 }
 // =======================================================
@@ -57,20 +57,20 @@ function closeModal(){
 exchangeBtn.addEventListener('click', conversion)
 
 function conversion() {
-    if (userAmount.value == '' 
-    || userAmount.value < 1 || userDate.value == '') {
-        for (let elem of currencyCards){
+    if (userAmount.value == ''
+        || userAmount.value < 1 || userDate.value == '') {
+        for (let elem of currencyCards) {
             elem.classList.add('hide')
         }
         errorModal.show()
     } else {
         // API fetch goes here
-        for (let elem of currencyCards){
+        for (let elem of currencyCards) {
             elem.classList.remove('hide')
         }
         currencyA.innerText = userAmount.value
         currencyB.innerText = userAmount.value * 5
         console.log(selectedCurrency.value)
     }
-    }
-    // ===============================================
+}
+// ===============================================

@@ -1,8 +1,8 @@
 body {
     background: url(../images/pexels-pixabay-220201.jpg);
-    background-size: cover;  
+    background-size: cover;
     background-color: rgb(7, 55, 82);
-    background-blend-mode:soft-light;
+    background-blend-mode: soft-light;
 }
 
 .chartsBg {
@@ -12,18 +12,18 @@ body {
     background-blend-mode: soft-light;
 }
 
-.boxShadow{
+.boxShadow {
     box-shadow: 10px 0px 50px 5px rgba(0, 0, 0, 0.5);
 }
 
-.dateHeader{
+.dateHeader {
     font-size: 1.2rem;
     box-shadow: 1px 0px 10px 2px rgba(0, 0, 0, 0.5);
 }
 
 #input-boxes {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
 }
 
 .write-currency {
@@ -33,7 +33,7 @@ body {
 }
 
 .write-currency select {
-    background-color:rgb(88, 111, 243);
+    background-color: rgb(88, 111, 243);
     color: #FFFFFF;
     font-size: 40px;
     border-radius: 10px;
@@ -48,6 +48,6 @@ body {
 
 
 /* class for hiding currency cards on click */
-.hide{
+.hide {
     display: none;
 }
