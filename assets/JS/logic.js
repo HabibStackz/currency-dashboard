@@ -12,7 +12,6 @@ var userDate = document.getElementById('userDate')
 var selectedCurrency = document.getElementById('selectedCurrency')
 // ===============================================
 
-
 const today = dayjs()
 
 function hideWelcomeMessage(){
@@ -55,7 +54,7 @@ function closeModal(){
 }
 
 // Display nothing if the user has not entered a value
-convertBtn.addEventListener('click', conversion)
+exchangeBtn.addEventListener('click', conversion)
 
 // After this has been clicked, fetch the data from the API
 // put the user amount in the API request to get the right conversion rate
@@ -70,8 +69,8 @@ convertBtn.addEventListener('click', conversion)
 // ===========================================================
 // Error handler to deal with a blank input
 function conversion() {
-    if (userAmount.value === '' 
-    || userAmount.value < 1) {
+    if (userAmount.value == '' 
+    || userAmount.value < 1 || userDate.value == '') {
         for (let elem of currencyCards){
             elem.classList.add('hide')
         }
