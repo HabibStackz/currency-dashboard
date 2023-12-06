@@ -9,9 +9,10 @@ let year = date.getFullYear();
 var baseCurrency = "USD";
 var quoteCurrency = "GBP"
 
+//Visualization API and the core chart package.
+google.charts.load('current', {'packages':['corechart']});
 
-
-// Variable to get timeSeries data 
+// API URL
 var base_timeSeriesURL = "https://marketdata.tradermade.com/api/v1/timeseries?currency="+baseCurrency+quoteCurrency+"&api_key=6QCpzLmVDWQ2U_dkKVwr&start_date=2023-01-01&end_date=2023-11-30&format=records";
 var quote_timeSeriesURL = "https://marketdata.tradermade.com/api/v1/timeseries?currency="+quoteCurrency+baseCurrency+"&api_key=6QCpzLmVDWQ2U_dkKVwr&start_date=2023-01-01&end_date=2023-11-30&format=records";
 
@@ -83,33 +84,14 @@ fetch(quote_timeSeriesURL).then(function(response){
         allHistoryCurrency.push([data.quotes[i].date , data.quotes[i].close])
     }
     //console.log(allHistoryCurrency);  
-    //runChart();
-    // Set a callback to run when the Google Visualization API is loaded.
+    
+    // callback function display chart.
     google.charts.setOnLoadCallback(drawChart(quoteCurrency, allHistoryCurrency, chartEl2));
     
 })
 };
 
-
-
-// Load the Visualization API and the core chart package.
-google.charts.load('current', {'packages':['corechart']});
-
-//function to get chart from google API
-// function runChart(){
-//     // Set a callback to run when the Google Visualization API is loaded.
-//     google.charts.setOnLoadCallback(drawChart);
-   
-// };
-
-getBaseCurrencyData(); 
-getQuoteCurrencyData();
-getCurrentCurrencyData();
-getHistoricalCurrencyData();
-getCurrencyCodesFromCurrencyName();
-getCurrencyCodesFromCountryName();
-
-// create Callback function that creates and populates a data table
+// Function that creates and populates a data table
 function drawChart(base, baseHistoryCurrency, chartEl) {
   
     // Create the data table.
@@ -127,3 +109,12 @@ function drawChart(base, baseHistoryCurrency, chartEl) {
     var chart = new google.visualization.LineChart(chartEl);
     chart.draw(data, options);
   };
+
+
+getBaseCurrencyData(); 
+getQuoteCurrencyData();
+getCurrentCurrencyData();
+getHistoricalCurrencyData();
+getCurrencyCodesFromCurrencyName();
+getCurrencyCodesFromCountryName();
+
