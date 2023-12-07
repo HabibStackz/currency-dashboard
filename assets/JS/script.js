@@ -4,33 +4,42 @@ let date = new Date();
 let year = date.getFullYear();
 
 async function getCurrentCurrencyData(currency) {
-    await fetch(`https://api.exchangerate-api.com/v4/latest/${currency}`)
+    return await fetch(`https://api.exchangerate-api.com/v4/latest/${currency}`)
         .then(response => response.json())
-        .then(data => { console.log(data) })
+        .then(data => {
+            return data;
+        })
         .catch(error => { console.error(error) });
 }
 
-async function getHistoricalCurrencyData() {
+async function getHistoricalCurrencyData(currencyGiven, currencyTargeting) {
+    let historicalCurrencyData = [];
     for (let i = year - 1; i > year - 6; i--) {
-        await fetch(`https://openexchangerates.org/api/historical/${i}-01-01.json?app_id=${marketdataAPIkey}&base=USD&symbols=EUR`)
+        await fetch(`https://openexchangerates.org/api/historical/${i}-01-01.json?app_id=${marketdataAPIkey}&base=${currencyGiven}&symbols=${currencyTargeting}`)
             .then(response => response.json())
-            .then(data => { console.log(data) })
+            .then(data => {
+                console.log(data)
+                historicalCurrencyData.push(data);
+            })
             .catch(error => { console.error(error) });
     }
+    return historicalCurrencyData;
 }
 
 async function getCurrencyCodesFromCurrencyName() {
-    await fetch('https://openexchangerates.org/api/currencies.json')
+    return await fetch('https://openexchangerates.org/api/currencies.json')
         .then(response => response.json())
         .then(data => {
+            return data;
         })
         .catch(error => console.error(error));
 }
 
 async function getCurrencyCodesFromCountryName() {
-    await fetch('https://restcountries.com/v3.1/all')
+    return await fetch('https://restcountries.com/v3.1/all')
         .then(response => response.json())
         .then(data => {
+            return data;
             // Get main name of country: data[0].name.common;
         });
 }
