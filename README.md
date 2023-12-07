@@ -9,9 +9,12 @@
 * [Tests](#tests)
 
 ## Screenshot
-![First screen](screenshots/screenshot1.png)
-![Second screen](screenshots/screenshot2.png)
-![Second screen after exchange button pressed](screenshots/screenshot3.png)
+First screen ![cd_scr_1](https://github.com/HabibStackz/currency-dashboard/assets/105345889/ec371865-bb04-426f-9a24-9d92e10da6ae)
+
+Second screen ![cd_scr_2](https://github.com/HabibStackz/currency-dashboard/assets/105345889/ba780f1c-767c-4a34-9973-45fd6ded0832)
+
+Second screen after exchange button pressed ![cd_scr_3](https://github.com/HabibStackz/currency-dashboard/assets/105345889/300402d1-065a-4c20-abaf-5364ac390245)
+
 
 ## Information
 The Currency Converter is a website that allows users to convert values from one currency to another. The program currently supports two different currencies: dollars and sterling. Users can select the currency they want to convert from and enter a value to have it converted into the other currency. The program uses real-time exchange rates to ensure that the conversions are accurate and up-to-date.
@@ -32,7 +35,7 @@ Click on this link:
 ## License
 MIT License
 
-Copyright (c) [2023] [Abdul Rehman]
+Copyright (c) [2023]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
