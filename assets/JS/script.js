@@ -1,3 +1,4 @@
+let currency;
 var chartEl1 = document.getElementById('chart_div1');
 var chartEl2 = document.getElementById('chart_div2')
 let currency = "AED";
@@ -5,6 +6,13 @@ let marketdataAPIkey = "0316a175ab7d4cb592969c346cdc3a57";
 let date = new Date();
 let year = date.getFullYear();
 
+async function getCurrentCurrencyData(currency) {
+    return await fetch(`https://api.exchangerate-api.com/v4/latest/${currency}`)
+        .then(response => response.json())
+        .then(data => {
+            return data;
+        })
+        .catch(error => { console.error(error) });
 //set currency
 var baseCurrency = "USD";
 var quoteCurrency = "GBP"
@@ -32,18 +40,41 @@ function getHistoricalCurrencyData () {
         })
         .catch(error => { console.error(error) });
     }  
-    
 }
 
-function getCurrencyCodesFromCurrencyName () {
-    fetch('https://openexchangerates.org/api/currencies.json')
-    .then(response => response.json())
-    .then(data => {
-    })
-    .catch(error => console.error(error));
+async function getHistoricalCurrencyData(currencyGiven, currencyTargeting) {
+    let historicalCurrencyData = [];
+    for (let i = year - 1; i > year - 6; i--) {
+        await fetch(`https://openexchangerates.org/api/historical/${i}-01-01.json?app_id=${marketdataAPIkey}&base=${currencyGiven}&symbols=${currencyTargeting}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                historicalCurrencyData.push(data);
+            })
+            .catch(error => { console.error(error) });
+    }
+    return historicalCurrencyData;
 }
 
-function getCurrencyCodesFromCountryName() {
+async function getCurrencyCodesFromCurrencyName() {
+    return await fetch('https://openexchangerates.org/api/currencies.json')
+        .then(response => response.json())
+        .then(data => {
+            return data;
+        })
+        .catch(error => console.error(error));
+}
+
+async function getCurrencyCodesFromCountryName() {
+    return await fetch('https://restcountries.com/v3.1/all')
+        .then(response => response.json())
+        .then(data => {
+            return data;
+            // Get main name of country: data[0].name.common;
+        });
+}
+
+ function getCurrencyCodesFromCountryName() {
     fetch('https://restcountries.com/v3.1/all')
     .then(response => response.json())
     .then(data => {
@@ -115,4 +146,3 @@ getCurrentCurrencyData();
 getHistoricalCurrencyData();
 getCurrencyCodesFromCurrencyName();
 getCurrencyCodesFromCountryName();
-
