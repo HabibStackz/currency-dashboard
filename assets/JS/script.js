@@ -19,9 +19,7 @@ var quote_timeSeriesURL = "https://marketdata.tradermade.com/api/v1/timeseries?c
 function getCurrentCurrencyData () {
     fetch(`https://api.exchangerate-api.com/v4/latest/${currency}`)
     .then(response => response.json())
-    .then(data => {
-        //console.log(data);
-    })
+    .then(data => {console.log(data)})
     .catch(error => { console.error(error) });
 }
 
