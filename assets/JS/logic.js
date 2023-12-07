@@ -70,7 +70,6 @@ function conversion() {
         }
         errorModal.show()
     } else {
-        // API fetch goes here
         for (let elem of currencyCards) {
             elem.classList.remove('hide')
         }
