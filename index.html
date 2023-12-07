@@ -10,6 +10,12 @@
 </head>
 
 <body>
+    <div id="chart_div1"></div>
+    <div id="chart_div2"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="./assets/JS/script.js"></script>
 
     <header class="text-white text-center m-4">
         <h1>Currency Dashboard</h1>
@@ -73,7 +79,7 @@
 
                 <div id="exchangeButton" class="col-2 text-center">
                     <a href="#" class="btn btn-primary">Exchange</a>
-                    <!-- exchange arrow goes here -->
+                    <!-- exchange arrow goes here! -->
                 </div>
 
 
@@ -90,6 +96,16 @@
             </div>
 
         </div>
+
+      </div>
+      <div class="row align-items-center">
+        <div class="card boxShadow text-center mb-3 col-5 rounded-5" style="width: 1fr; height: 30rem;">
+          <div class="card-body">
+            <h5 class="card-title">Currency A</h5>
+            <p class="card-text">Data goes in here.</p>
+            <div id="chart_div1"></div>
+          </div>
+
     </section>
 
     <footer>
@@ -99,11 +115,12 @@
                     <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Home</a></li>
                     <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Features</a></li>
                     <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-white">FAQ</a></li>
                     <li class="nav-item"><a href="#" class="nav-link px-2 text-white">About</a></li>
                 </ul>
                 <p class="text-center text-white ">© 2023 Currency Dashboard</p>
             </footer>
+
         </div>
     </footer>
 
@@ -129,6 +146,38 @@
                 </div>
             </div>
         </div>
+        
+        <div class="card boxShadow text-center mb-3 col-5 rounded-5" style="width: 1fr; height: 30rem;">
+          <div class="card-body">
+            <h5 class="card-title">Currency B</h5>
+            <p class="card-text">Data goes in here.</p>
+            
+            <div id="chart_div2"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Features</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-white">About</a></li>
+        </ul>
+        <p class="text-center text-white ">© 2023 Currency Dashboard</p>
+      </footer>
+    </div>
+  </footer>
+
+
+
     </form>
     <!-- ======= end ======== -->
 
