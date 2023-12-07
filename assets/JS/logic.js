@@ -95,10 +95,10 @@ function conversion() {
 
         let selectedCurrencyText = selectedCurrency.options[selectedCurrency.selectedIndex].innerText;
         if (selectedCurrencyText == '$') {
-            var currency = 'USD';
+            var oldCurrencyText = 'USD';
         }
         else if (selectedCurrencyText == '£') {
-            var currency = 'GBP';
+            var oldCurrencyText = 'GBP';
         }
 
         let historicalData = getTheHistoricalCurrencyData(currency, updatedCurrency.value)
@@ -112,7 +112,7 @@ function conversion() {
             var newCurrencyText = 'GBP';
         }
 
-        currencyA.innerText = selectedCurrencyText + userAmount.value + " " + currency;
+        currencyA.innerText = selectedCurrencyText + userAmount.value + " " + oldCurrencyText;
         currencyB.innerText = selectedCurrencyText + userAmount.value * 5 + " " + newCurrencyText;
 
         getTheCurrentCurrencyData(newCurrencyText);
