@@ -17,14 +17,16 @@ Second screen after exchange button pressed ![cd_scr_3](https://github.com/Habib
 
 
 ## Information
-The Currency Converter is a website that allows users to convert values from one currency to another. The program currently supports two different currencies: dollars and sterling. Users can select the currency they want to convert from and enter a value to have it converted into the other currency. The program uses real-time exchange rates to ensure that the conversions are accurate and up-to-date.
+Currency Dashboard is a website that allows users to convert values from one currency to another. The program currently supports two different currencies: dollars and poundsterling.
+
+Users can select the currency they want to convert from and enter a value to have it converted into the other currency. The program uses real-time exchange rates to ensure that the conversions are accurate and up-to-date.
 
 The Currency Converter is built using JavaScript and is designed to be user-friendly and easy to use. It is ideal for anyone who needs to convert currencies on a regular basis, such as business owners, travelers, or anyone who makes transactions online.
 
-The program currently only supports 2 different currencies. However, we are working on adding more
+The program currently only supports 2 different currencies. However, we are working on adding more.
 
 ## Installation
-Click on this link:
+Click on this link: https://habibstackz.github.io/currency-dashboard/
 
 ## Credits
 ![Habib Hakeem](https://github.com/HabibStackz)
