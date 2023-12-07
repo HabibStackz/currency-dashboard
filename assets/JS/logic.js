@@ -56,7 +56,16 @@ function closeModal() {
 // Get current currency data
 async function getTheCurrentCurrencyData(text) {
     await getCurrentCurrencyData(text)
-        .then(data => { console.log(data) })
+        .then(data => { })
+        .catch(error => {
+            console.error(error);
+        })
+};
+
+// Get current currency data
+async function getTheHistoricalCurrencyData(currencyGiven, currencyTargeting) {
+    await getHistoricalCurrencyData(currencyGiven, currencyTargeting)
+        .then(data => { })
         .catch(error => {
             console.error(error);
         })
@@ -69,7 +78,6 @@ selectedCurrency.addEventListener('change', returnValue);
 
 function returnValue(event) {
     const currentValue = event.target.value;
-    console.log(currentValue);
 }
 
 function conversion() {
@@ -85,7 +93,7 @@ function conversion() {
             elem.classList.remove('hide');
         }
 
-        console.log(selectedCurrency);
+
         let selectedCurrencyText = selectedCurrency.options[selectedCurrency.selectedIndex].innerText;
         if (selectedCurrencyText == '$') {
             var currency = 'USD';
@@ -94,8 +102,10 @@ function conversion() {
             var currency = 'GBP';
         }
 
+        let historicalData = getTheHistoricalCurrencyData(currency, updatedCurrency.value)
+
         var updatedCurrencyText = updatedCurrency.options[updatedCurrency.selectedIndex].innerText;
-        console.log("The updated currency type is " + updatedCurrencyText);
+
         if (updatedCurrencyText == '$') {
             var newCurrencyText = 'USD';
         }
